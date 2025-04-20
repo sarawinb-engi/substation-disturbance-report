@@ -1,0 +1,1 @@
+from fitz import open as fitz_open
