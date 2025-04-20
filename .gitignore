@@ -1,0 +1,22 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environment
+venv/
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Jupyter or temporary files
+*.ipynb_checkpoints/
+*.swp
+
+# Output files
+*.log
+*.csv
+*.json
+*.txt
