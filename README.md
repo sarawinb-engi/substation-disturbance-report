@@ -5,6 +5,7 @@
 Automated analyzer for substation voltage disturbance reports (e.g., Voltage Sag, Swell, Interruption).  
 Supports Fault Classification, Sequence Components Analysis, and Visualization tools.
 
+--- 
 ## 📁 Features
 
 - ✅ Voltage Sag %, Per-unit, RMS Duration (ms, cycles)
@@ -14,8 +15,29 @@ Supports Fault Classification, Sequence Components Analysis, and Visualization t
 - ✅ Phase Impedance Calculation (Z∠θ)
 - ✅ Export Results (.txt, .csv, .json)
 - ✅ Easy to extend!
+--- 
+
+## 📦 Installation
+
+Create a virtual environment and install dependencies:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\\Scripts\\activate
+pip install -r requirements.txt
+
+## 📄 License
+
+This project is licensed under the  License.
+
 
 ## 🚀 Usage
 
 ```bash
-python disturbance_analyzer.py
+python3 disturbance_analyzer.py
+
+
+## 👨‍💻 Author
+
+Sarawin Buakaew  
+[LinkedIn](#) • [GitHub](#)
