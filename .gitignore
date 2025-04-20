@@ -4,8 +4,10 @@ __pycache__/
 *.egg-info/
 
 # Virtual environment
+.venv/
 venv/
-.env
+pymupdf-venv/  # เผื่อใช้ venv ชื่ออื่น
+.env           # ถ้ามีไฟล์ env เก็บ config ลับ
 
 # IDEs and editors
 .vscode/
@@ -15,8 +17,18 @@ venv/
 *.ipynb_checkpoints/
 *.swp
 
-# Output files
+# Output and result files
 *.log
 *.csv
 *.json
-*.txt
+*.pdf
+*.zip
+*.xlsx
+
+# Avoid committing general text or requirements by mistake
+# (but don't ignore all .txt if you need requirements.txt)
+# *.txt    <— ❌ แนะนำ **ลบออก** หรือคอมเมนต์ไว้ เพราะ `requirements.txt` จะถูกมองข้าม
+
+# Optional - OS generated files
+.DS_Store
+Thumbs.db
