@@ -30,8 +30,9 @@ This project is licensed under the  License.
 
 ## 🚀 Usage
 
+```bash
 python3 disturbance_analyzer.py
-
+```
 
 ## 📦 Installation
 
@@ -41,3 +42,4 @@ Create a virtual environment and install dependencies:
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\\Scripts\\activate
 pip install -r requirements.txt
+```
