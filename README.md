@@ -1,13 +1,13 @@
 
 
-# Substation Disturbance Analyzer 📉⚡
+<h1>⚡️ Substation Disturbance Analyzer 📉</h1>
 
-Automated analyzer for substation voltage disturbance reports (e.g., Voltage Sag, Swell, Interruption).  
+<p>Automated analyzer for substation voltage disturbance reports (e.g., Voltage Sag, Swell, Interruption).  
 Supports Fault Classification, Sequence Components Analysis, and Visualization tools.
-
+</p>
 --- 
 
-## 📁 Features
+## 🚀 Features
 
 - ✅ Voltage Sag %, Per-unit, RMS Duration (ms, cycles)
 - ✅ Fault Type Classification (LG, LL, LLG, LLL)
@@ -42,3 +42,4 @@ Create a virtual environment and install dependencies:
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\\Scripts\\activate
 pip install -r requirements.txt
+```bash
