@@ -5,7 +5,6 @@
 <p>Automated analyzer for substation voltage disturbance reports (e.g., Voltage Sag, Swell, Interruption).  
 Supports Fault Classification, Sequence Components Analysis, and Visualization tools.
 </p>
---- 
 
 ## 🚀 Features
 
@@ -17,7 +16,7 @@ Supports Fault Classification, Sequence Components Analysis, and Visualization t
 - ✅ Export Results (.txt, .csv, .json)
 - ✅ Easy to extend!
 
---- 
+---
 
 ## 👨‍💻 Author
 
