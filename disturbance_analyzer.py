@@ -122,9 +122,9 @@ class DisturbanceAnalyzer:
         match_il3 = re.search(r"IL3\s+([\d.]+)\(A\)\s([\d.]+)°", self.text)
         
         if match_il1 and match_il2 and match_il3:
-            i1 = self.polar_to_complex(float(match_il1.group(1))), float(match_il1.group(2))
-            i2 = self.polar_to_complex(float(match_il2.group(1))), float(match_il2.group(2))
-            i3 = self.polar_to_complex(float(match_il3.group(1))), float(match_il3.group(2))
+            i1 = self.polar_to_complex(float(match_il1.group(1)), float(match_il1.group(2)))
+            i2 = self.polar_to_complex(float(match_il2.group(1)), float(match_il2.group(2)))
+            i3 = self.polar_to_complex(float(match_il3.group(1)), float(match_il3.group(2)))
             
             a = cmath.rect(1, math.radians(120)) 
             
@@ -152,4 +152,29 @@ class DisturbanceAnalyzer:
         match_ul2 = re.search(r"UL2\s+([\d.]+)\(V\)\s+([\d.]+)°", self.text)
         match_ul3 = re.search(r"UL3\s+([\d.]+)\(V\)\s+([\d.]+)°", self.text)
         
+        if match_ul1 and match_ul2 and match_ul3:
+            v1 = self.polar_to_complex(float(match_ul1.group(1)), float(match_ul1.group(2)))
+            v2 = self.polar_to_complex(float(match_ul2.group(1)), float(match_ul2.group(2)))
+            v3 = self.polar_to_complex(float(match_ul3.group(1)), float(match_ul3.group(2)))
+        
+        a = cmath.rect(1, math.radians(120)) 
+        
+        V0 = (v1 + v2 + v3) / 3
+        V1 = (v1 + a * v2 + a ** 2 * v3) / 3
+        V2 = (v1 + a ** 2 * v2 + a * v3) / 3
+        
+        self.voltage_componets = {
+                "V0 (Zero seq)" : {
+                    "Magnitude": round(self.complex_magnitude(V0), 3),
+                    "Angle_deg": round(self.complex_angle_deg(V0), 2)
+                    },
+                "V1 (Positive seq)" : {
+                    "Magnitude": round(self.complex_magnitude(V1), 3),
+                    "Angle_deg": round(self.complex_angle_deg(V1), 2)
+                    },
+                "V2 (Negative seq)" : {
+                    "Magnitude": round(self.complex_magnitude(V2), 3),
+                    "Angle_deg": round(self.complex_angle_deg(V2), 2)
+                    }
+            }
         
