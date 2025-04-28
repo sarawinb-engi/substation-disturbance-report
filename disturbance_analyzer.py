@@ -9,6 +9,7 @@ import math
 import json 
 import pandas as pd 
 from tabulate import tabulate 
+import os 
 
 class DisturbanceAnalyzer: 
     def __init__(self, file_path, nominal_voltage=115000 / np.sqrt(3),
@@ -177,4 +178,60 @@ class DisturbanceAnalyzer:
                     "Angle_deg": round(self.complex_angle_deg(V2), 2)
                     }
             }
+    def analyze(self):
+        self.extract_event_time()
+        self.extract_voltage_values()
+        self.extract_current_values()
+        self.extrect_event_duration()
+        self.analyze_voltage_seq()
+        self.analyze_current_seq()
+        
+        return {
+            "Event Timestamp" : self.event_datetime.strftime('%Y-%m-%d')
+            if self.event_datetime else None, 
+            "Voltage Sag" : f"{round(self.voltage_sag_pct, 2)} %",
+            "Per-Unit Voltage" : f"{round(self.per_unit, 4)} pu.",
+            "RMS Duration_ms" : f"{round(self.duration_ms)} ms.",
+            "RMS Duratiom_cy " : f"{round(self.duration_cycles)} cycle.",
+        }
+        
+    @staticmethod 
+    def save_result_txt(result, filename="results\\even_anlyze.txt"):
+        with open(filename, "a", encoding="utf-8") as f:
+            f.write("\n 📄 Distribution Analysis Results\n")
+            f.write("=" * 40 + "\n") 
+            f.write("\n") 
+        
+        print(f"✅ Appended result to {filename}") 
+    
+def analyze_folder(folder_path="report\\2025"):
+    results = [] 
+    for root, _, files in os.walk(folder_path):
+        for file in files:
+            if file.lower().endswith('.pdf'):
+                file_path = os.path.join(root, file)
+                print(f"📄 Analyzing : {file_path}")
+                try :
+                    analyzer = DisturbanceAnalyzer(file_path)
+                    result = analyzer.analyze()
+                    result['File Name'] = file
+                    results.append(result)
+                except Exception as e:
+                    print(f"❌ Error processing {file}: {e}")
+
+    # df = pd.DataFrame(results)        
+        
+        
+if __name__ == "__main__":
+    folder_mode = False 
+    
+    if folder_mode:
+        analyze_folder()
+    else:
+        file_path = 'report\\2025\\12_REF630-AA1E1Q01A1_DR987_20250417041242.pdf'
+        analyzer = DisturbanceAnalyzer(file_path)
+        result = analyzer.analyze()
+        
+        # Display options
+        analyzer.save_result_txt(result)
         
