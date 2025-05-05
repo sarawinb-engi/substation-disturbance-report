@@ -23,7 +23,7 @@ Supports Fault Classification, Sequence Components Analysis, and Visualization t
 ## 👨‍💻 Author
 
 Sarawin Buakaew  
-[LinkedIn](#) • [GitHub](#)
+[Instragram](https://www.instagram.com/_srwbk_?igsh=MWJrZmhhb3RoMWk3ag%3D%3D&utm_source=qr) • [GitHub](https://github.com/sarawinb-engi)
 
 ## 📄 License
 
