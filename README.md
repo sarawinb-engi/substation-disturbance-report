@@ -1,4 +1,5 @@
-
+Automated analyzer for substation voltage disturbance reports (e.g., Voltage Sag, Swell, Interruption).  
+Supports Fault Classification, Sequence Components Analysis, and Visualization tools.
 
 <h1>⚡️ Substation Disturbance Analyzer 📉</h1>
 
